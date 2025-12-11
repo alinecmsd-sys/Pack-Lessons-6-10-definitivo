@@ -13,7 +13,7 @@ export interface PhraseItem {
 
 export interface ExerciseItem {
   id: string;
-  scrambled: string[];
+  options: string[];
   answer: string;
   translation: string;
   tts: string;

@@ -81,6 +81,7 @@ export const playTTS = async (text: string): Promise<void> => {
     // Fallback to browser TTS if Gemini fails or key is missing
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
+    utterance.rate = 0.9; // Browser fallback speed
     window.speechSynthesis.speak(utterance);
   }
 };
@@ -88,6 +89,7 @@ export const playTTS = async (text: string): Promise<void> => {
 const playBuffer = (ctx: AudioContext, buffer: AudioBuffer) => {
   const source = ctx.createBufferSource();
   source.buffer = buffer;
+  source.playbackRate.value = 0.9; // Set speed to 0.9 as requested
   source.connect(ctx.destination);
   source.start(0);
 };

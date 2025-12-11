@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Menu, X, BookOpen, ChevronRight, GraduationCap } from 'lucide-react';
-import { allLessons, lesson6 } from './data/lessons';
+import { Menu, X, ChevronRight, GraduationCap } from 'lucide-react';
+import { allLessons, lesson11 } from './data/lessons';
 import { LessonView } from './components/LessonView';
 import { Lesson } from './types';
 
 function App() {
-  const [currentLesson, setCurrentLesson] = useState<Lesson>(lesson6);
+  const [currentLesson, setCurrentLesson] = useState<Lesson>(lesson11);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLessonChange = (lesson: Lesson) => {
@@ -40,7 +40,7 @@ function App() {
           </div>
 
           <nav className="space-y-2 flex-1 overflow-y-auto">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 px-2">Course Modules</p>
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 px-2">Course Modules (Pack 3)</p>
             {allLessons.map((lesson) => (
               <button
                 key={lesson.id}
@@ -68,10 +68,10 @@ function App() {
               <div className="w-full bg-slate-200 rounded-full h-1.5 mb-2">
                 <div 
                   className="bg-indigo-500 h-1.5 rounded-full transition-all duration-500" 
-                  style={{ width: `${((currentLesson.id - 5) / 5) * 100}%` }}
+                  style={{ width: `${((currentLesson.id - 10) / 5) * 100}%` }}
                 ></div>
               </div>
-              <p className="text-xs text-slate-400">Lesson {currentLesson.id - 5} of 5</p>
+              <p className="text-xs text-slate-400">Lesson {currentLesson.id - 10} of 5</p>
             </div>
           </div>
         </div>
